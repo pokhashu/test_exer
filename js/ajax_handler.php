@@ -32,7 +32,7 @@
 	
 					$response = ["status"=>false, "message"=>"Такой пользователь уже существует"];
 	
-				} else if(!preg_match("/^[a-zA-Z0-9]{6,}$/", $_POST['password'])){
+				} else if(!preg_match("/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{6,}$/", $_POST['password'])){
 	
 					$response = ["status"=>false, "message"=>"Пароль должен быть длинее 6 символов, содержать только буквы и цифры"];
 	
@@ -40,7 +40,7 @@
 	
 					$response = ["status"=>false, "message"=>"Пароли не совпадают"];
 	
-				} else if(!preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/", $_POST['email'])){
+				} else if(!preg_match("/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/", $_POST['email'])){
 	
 					$response = ["status"=>false, "message"=>"укажите правильную электронную почту"];
 	
